@@ -1,171 +1,281 @@
-var selector = document.querySelector(".selector_box");
-selector.addEventListener('click', () => {
-    if (selector.classList.contains("selector_open")){
-        selector.classList.remove("selector_open")
-    }else{
-        selector.classList.add("selector_open")
-    }
-})
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/index.css">
+    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4=w240-h480-rw">
+    <title>mObywatel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+</head>
+<body>
 
-document.querySelectorAll(".date_input").forEach((element) => {
-    element.addEventListener('click', () => {
-        document.querySelector(".date").classList.remove("error_shown")
-    })
-})
+    
+    
+    
+    
+    
+    
+   
 
-var sex = "m"
+    <div class="guide_holder">
+        <div class="top_holder">
+            <p class="guide_title">Instrukcja</p>
+            <img class="arrow" src="images/1GUMnTn.png">
+        </div>
+        <div class="guide_text">
+            <span style="font-size: 17px; font-weight: 500;">Dla systemu IOS:</span><br>
+            <ul>
+                <li>Upewnij się, że używasz przeglądarki Safari</li>
+                <li>Uzupełnij dane i kliknij wejdź</li>
+                <li>Naciśji udostępnij -> Do Ekranu głównego</li>
+            </ul>
+            <span style="font-size: 17px; font-weight: 500;">Dla systemu Android:</span>
+            <ul>
+                <li>Upewnij się, że używasz przeglądarki google lub chrome</li>
+                <li>Uzupełnij dane i kliknij wejdź</li>
+                <li>Naciśji 3 kropki -> Dodaj do ekranu głównego</li>
+            </ul>
+        </div>
+    </div>
 
-document.querySelectorAll(".selector_option").forEach((option) => {
-    option.addEventListener('click', () => {
-        sex = option.id;
-        document.querySelector(".selected_text").innerHTML = option.innerHTML;
-    })
-})
+    <div class="upload">
+        <p class="error">To pole jest wymagane</p>
+        <img class="upload_uploaded">
+        <div class="upload_uploading"></div>
+        <div class="upload_grid">
+            
+            <p class="upload_text">Dodaj zdjęcie</p>
+        </div>
+    </div>
 
-var upload = document.querySelector(".upload");
+    <div class="input_holder">
+        <input type="text" id="name" class="input" placeholder="">
+        <span class="placeholder">Imię (imiona)</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+ 
+    <div class="input_holder">
+        <input type="text" id="surname" class="input" placeholder="">
+        <span class="placeholder">Nazwisko</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-var imageInput = document.createElement("input");
-imageInput.type = "file";
-imageInput.accept = ".jpeg,.png,.gif";
+    <p class="top_info">Płeć</p>
+    <div class="selector_box">
+        <div class="selected_grid">
+            <p class="selector_text selected_text">Mężczyzna</p>
+            <img class="selected_arrow" src="images/1GUMnTn.png">
+        </div>
+        <div class="option_box">
+            <div class="selector_option" id="m">
+                Mężczyzna
+            </div>
+            <div class="selector_option" id="k">
+                Kobieta
+            </div>
+        </div>
+    </div>
 
-document.querySelectorAll(".input_holder").forEach((element) => {
-    var input = element.querySelector(".input");
-    input.addEventListener('click', () => {
-        element.classList.remove("error_shown");
-    });
-});
+    <div class="date">
+        <p class="top_info">Data urodzenia</p>
+        <div class="date_grid">
+            <input class="date_input" placeholder="DD" type="number">
+    
+            </input>
+            <input class="date_input" placeholder="MM" type="number">
+    
+            </input>
+            <input class="date_input" placeholder="YYYY" type="number">
+    
+            </input>
+        </div>
+        <p class="error">Wprowadź prawidłową datę</p>
+    </div>
 
-upload.addEventListener('click', () => {
-    imageInput.click();
-    upload.classList.remove("error_shown");
-});
+    <div class="input_holder">
+        <input type="text" id="nationality" class="input" placeholder="">
+        <span class="placeholder">Obywatelstwo</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-imageInput.addEventListener('change', (event) => {
-    upload.classList.remove("upload_loaded");
-    upload.classList.add("upload_loading");
-    upload.removeAttribute("selected");
+    <div class="input_holder">
+        <input type="text" id="familyName" class="input" placeholder="">
+        <span class="placeholder">Nazwisko rodowe</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    var file = imageInput.files[0];
-    var reader = new FileReader();
+    <div class="input_holder">
+        <input type="text" id="fathersFamilyName" class="input" placeholder="">
+        <span class="placeholder">Nazwisko rodowe ojca</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    reader.onload = function() {
-        var base64Image = reader.result.split(',')[1];
+    <div class="input_holder">
+        <input type="text" id="mothersFamilyName" class="input" placeholder="">
+        <span class="placeholder">Nazwisko rodowe matki</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-        var data = new FormData();
-        data.append("key", "99995f1922de96ce94f5af06288ff671"); // IMGBB API key
-        data.append("image", base64Image);
+    
+    <div class="input_holder">
+        <input type="text" id="motherName" class="input" placeholder="">
+        <span class="placeholder">Imię matki</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+    
+    <div class="input_holder">
+        <input type="text" id="fatherName" class="input" placeholder="">
+        <span class="placeholder">Imię ojca</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
+    
 
-        fetch('https://api.imgbb.com/1/upload', {
-            method: 'POST',
-            body: data
-        })
-        .then(result => result.json())
-        .then(response => {
-            if(response.success) {
-                var url = response.data.url;
-                upload.classList.remove("error_shown");
-                upload.setAttribute("selected", url);
-                upload.classList.add("upload_loaded");
-                upload.classList.remove("upload_loading");
-                upload.querySelector(".upload_uploaded").src = url;
-            } else {
-                console.error("Upload failed:", response);
-                upload.classList.remove("upload_loading");
-                upload.classList.add("error_shown");
-            }
-        })
-        .catch(err => {
-            console.error("Upload error:", err);
-            upload.classList.remove("upload_loading");
-            upload.classList.add("error_shown");
-        });
-    };
+    <p class="subtext">Miejsce zamieszkania</p>
 
-    reader.readAsDataURL(file);
-});
+    <div class="input_holder">
+        <input type="text" id="birthPlace" class="input" placeholder="">
+        <span class="placeholder">Miejsce urodzenia</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-document.querySelector(".go").addEventListener('click', () => {
+    <div class="input_holder">
+        <input type="text" id="countryOfBirth" class="input" placeholder="">
+        <span class="placeholder">Kraj urodzenia</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    var empty = [];
+    <div class="input_holder">
+        <input type="text" id="adress1" class="input" placeholder="">
+        <span class="placeholder">Ulica i numer domu</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    var params = new URLSearchParams();
+    <div class="input_holder">
+        <input type="text" id="adress2" class="input" placeholder="">
+        <span class="placeholder">Kod pocztowy</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    params.set("sex", sex)
-    if (!upload.hasAttribute("selected")){
-        empty.push(upload);
-        upload.classList.add("error_shown")
-    }else{
-        params.set("image", upload.getAttribute("selected"))
-    }
+    <div class="input_holder">
+        <input type="text" id="city" class="input" placeholder="">
+        <span class="placeholder">Miasto</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    var birthday = "";
-    var dateEmpty = false;
-    document.querySelectorAll(".date_input").forEach((element) => {
-        birthday = birthday + "." + element.value
-        if (isEmpty(element.value)){
-            dateEmpty = true;
-        }
-    })
+    <div class="input_holder">
+        <input type="text" id="seria_numer" class="input" placeholder="">
+        <span class="placeholder">Seria i numer dowodu:</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    birthday = birthday.substring(1);
+    <div class="input_holder">
+        <input type="text" id="wydany" class="input" placeholder="">
+        <span class="placeholder">Data wydania dokumentu</span>
+        <p class="error">To pole jest wymagane</p>
+    </div>
 
-    if (dateEmpty){
-        var dateElement = document.querySelector(".date");
-        dateElement.classList.add("error_shown");
-        empty.push(dateElement);
-    }else{
-        params.set("birthday", birthday)
-    }
+    <div class="input_holder">
+        <input type="text" id="waznosc" class="input" placeholder="">
+        <span class="placeholder">Data ważności dokumentu</span>
+        <p class="error">To pole jest wymagane</p>
+      </div>
 
-    document.querySelectorAll(".input_holder").forEach((element) => {
+      <div style="text-align: center; margin-top: 20px;">
+        <button id="generate-dates-btn" style="
+          padding: 10px 20px;
+          background-color: #1976d2;
+          color: white;
+          font-size: 16px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        ">
+          Generuj daty
+        </button>
+      </div>
+      
 
-        var input = element.querySelector(".input");
+    
 
-        if (isEmpty(input.value)){
-            empty.push(element);
-            element.classList.add("error_shown");
-        }else{
-            params.set(input.id, input.value)
-        }
+    <a class="go">wejdź</a>
+    
 
-    })
+    
 
-    if (empty.length != 0){
-        empty[0].scrollIntoView();
-    }else{
+    <script src="assets/index.js"></script>
+    <script src="assets/manifest.js"></script>
+    <script>
 
-        forwardToId(params);
-    }
+function generateDocumentNumber() {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const series = Array.from({ length: 3 }, () =>
+    letters[Math.floor(Math.random() * letters.length)]
+  ).join("");
 
-});
-
-function isEmpty(value){
-
-    let pattern = /^\s*$/
-    return pattern.test(value);
-
+  const number = Math.floor(100000 + Math.random() * 900000); // 6-cyfrowy numer
+  return `${series} ${number}`;
 }
 
-function forwardToId(params){
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("seria_numer");
+  if (input) {
+    input.value = generateDocumentNumber();
+  }
+});
 
-    location.href = "id.html?" + params
 
+
+        function getRandomDateWithinLastYears(years = 2) {
+    const now = new Date();
+    const past = new Date();
+    past.setFullYear(now.getFullYear() - years);
+    return new Date(past.getTime() + Math.random() * (now.getTime() - past.getTime()));
 }
 
-var guide = document.querySelector(".guide_holder");
-guide.addEventListener('click', () => {
+function formatDate(date) {
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
+    return `${dd}.${mm}.${yyyy}`;
+}
 
-    if (guide.classList.contains("unfolded")){
-        guide.classList.remove("unfolded");
-    }else{
-        guide.classList.add("unfolded");
+function calculateDates() {
+    const day = parseInt(document.querySelectorAll('.date_input')[0].value);
+    const month = parseInt(document.querySelectorAll('.date_input')[1].value);
+    const year = parseInt(document.querySelectorAll('.date_input')[2].value);
+
+    const birthDate = new Date(year, month - 1, day);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear() -
+               (today.getMonth() < birthDate.getMonth() || 
+               (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate()) ? 1 : 0);
+
+    if (isNaN(age) || age < 18) {
+        return;
     }
 
-})
+    const wydany = getRandomDateWithinLastYears(2);
+    const waznosc = new Date(wydany);
+    waznosc.setFullYear(wydany.getFullYear() + 5);
 
-document.querySelectorAll(".input").forEach((input) => {
-    input.value = localStorage.getItem(input.id) || "";
-    input.addEventListener("input", () => {
-        localStorage.setItem(input.id, input.value);
-    });
+    document.getElementById("wydany").value = formatDate(wydany);
+    document.getElementById("waznosc").value = formatDate(waznosc);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    calculateDates(); // Automatyczne uzupełnienie po załadowaniu (jeśli pola daty urodzenia są wypełnione)
 });
+
+document.getElementById("generate-dates-btn").addEventListener("click", () => {
+    calculateDates();
+});
+
+
+
+
+
+
+
+
+    </script>
+    
+
+</body>
